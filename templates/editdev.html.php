@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-md-6 pr-1">
-            <label for="emplist" class="form-label">Datalist example</label>
+            <label for="emplist" class="form-label">Assign Employee</label>
             <input class="form-control" list="datalistOptions" name="emplist" required id="exampleDataList" placeholder="Type to search...">
             <datalist id="datalistOptions">
                 <?php foreach($employees as $emp): ?>

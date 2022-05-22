@@ -22,8 +22,7 @@
                   <div class="control__indicator"></div>
                 </label>
               </div>
-
-              <input type="submit" value="Log In" class="btn btn-block btn-primary mb-3">
+              <input type="submit" value="Log In" name="submit" class="col-md-7 btn btn-block btn-primary mb-3">
             </form>
           </div>
         </div>

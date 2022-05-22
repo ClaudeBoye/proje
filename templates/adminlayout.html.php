@@ -31,7 +31,7 @@
         <a
           class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
           href="#"
-          >Current user: <?= $_SESSION['username'] ?></a
+          >Current user: <?= $_SESSION['username'] ?> : <?= $_SESSION['prev'] ?></a
         >
         <button
           class="navbar-toggler"
@@ -70,7 +70,11 @@
                 <i class="bi bi-person-fill"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="Account.php?id=<?= $_SESSION['id'] ?>">Account</a></li>
+                <?php if($_SESSION['prev'] == 'admin'): ?>
+                  <li><a class="dropdown-item" href="Account.php?id=<?= $_SESSION['id'] ?>">Account</a></li>
+                <?php else: ?>
+                  <li><a class="dropdown-item" href="Accountemp.php?id=<?= $_SESSION['id'] ?>">Account</a></li>
+                <?php endif; ?>
                 <li><a class="dropdown-item" href="logout.php">Logout <span class = "bi bi-box-arrow-right "></span></a></li>
               </ul>
             </li>
@@ -101,7 +105,7 @@
               </a>
             </li>
             <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
-            <?php if($_SESSION['prev'] = 'admin'): ?>
+            <?php if ($_SESSION['prev'] == 'admin'): ?>
             <li>
               <div class="text-dark small fw-bold text-uppercase px-3 mb-3">
                 Interface
@@ -146,9 +150,11 @@
     <!-- where data is sent into from the templates to the main layout templates -->
     <main class="mt-5 pt-3">
       <!-- enter template controle code here that is the file under templates would be displayed here using output buffering in php -->
-      <?php if(isset($message)): ?>
-      <div class="text-danger"><?=$message?></div>
-      <?php endif ?>
+      <center>
+        <?php if(isset($message)): ?>
+          <div class="alert alert-danger"><?=$message?></div>
+        <?php endif ?>
+      </center>
       <?=$output?>
     </main>
     <script src="../templates/jsadmin/bootstrap.bundle.min.js"></script>

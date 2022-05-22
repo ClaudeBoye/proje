@@ -107,24 +107,9 @@ function update($pdo, $table, $primaryKey, $fields) {
     $query = rtrim($query, ',');
     
     $query .= ' WHERE `' . $primaryKey . '` = :primaryKey';
-   
-    // Set the :primaryKey variable
     
     $fields['primaryKey'] = $fields['id'];
     
     query($pdo, $query, $fields);
     
-}
-
-function processDates($fields){
-    foreach ($fields as $key => $value) {
-        if ($value instanceof DateTime) {
-
-            $fields[$key] = $value->format('Y-m-d');
-
-        }
-
-    }
-
-    return $fields;
 }

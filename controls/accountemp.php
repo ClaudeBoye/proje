@@ -1,9 +1,7 @@
 <?php
-// this contole deals only with updating the admin account
 session_start();
 
 if(empty($_SESSION['id'])){
-
     $message = 'Please login to access this page';
 
     header('location: login.php');
@@ -15,7 +13,7 @@ if(empty($_SESSION['id'])){
 
 
         if(isset($_POST['id']) ){
-            $pass = md5($_POST['password'], false);
+            $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             if($_POST['id'] != $_SESSION['id']){
 
@@ -32,12 +30,12 @@ if(empty($_SESSION['id'])){
 
                     $curentuser = getViaId($pdo, 'employee', 'id', $_GET['id']);
                 }else{
-                    $curentuser = getViaId($pdo, 'employee', 'id', $_GET['id']);
+                    $curentuser = getViaId($pdo, 'admin', 'id', $_GET['id']);
                 }
     
                 ob_start();
     
-                include __DIR__ . '/../templates/account.html.php';
+                include __DIR__ . '/../templates/accountemp.html.php';
     
                 $output = ob_get_clean();
 
@@ -58,12 +56,12 @@ if(empty($_SESSION['id'])){
                 header('location: account.php?id='.$_POST['id']);
             }
         }else{
-            
-            $curentuser = getViaId($pdo, 'admin', 'id', $_GET['id']);
+
+            $curentuser = getViaId($pdo, 'employee', 'id', $_GET['id']);
 
             ob_start();
 
-            include __DIR__ . '/../templates/account.html.php';
+            include __DIR__ . '/../templates/accountemp.html.php';
 
             $output = ob_get_clean();
         }

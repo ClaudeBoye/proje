@@ -6,8 +6,13 @@
 <body>
 
 <?php
-    $text = 'admin123';
+    $text = '$2y$10$tY6TJTtZTrImkHtGeRsaye9zaQMuMpIu4';
     $password = password_hash($text, PASSWORD_DEFAULT);
+    if(password_verify($text, 'admin123') == true){
+        echo 'true <br>';
+    }else{
+        echo 'false <br>';
+    }
     echo $password;
 ?>
 

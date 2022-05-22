@@ -35,32 +35,35 @@
                               <a href="edituser.php?id=<?=$cust['id']?>"><button class="btn btn-success"><span class="bi bi-gear-fill"></span></button>
                           </td>
                           <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#<?=$cust['adrcode']?>">
-                              <span class="bi bi-trash"></span>
-                            </button>
+                            <?php if($_SESSION['prev'] == 'admin'): ?>
+                              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#<?=$cust['adrcode']?>">
+                                <span class="bi bi-trash"></span>
+                              </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="<?=$cust['adrcode']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete action</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    You are about to delete this field do you want to proceed <b> <?= $cust['user_name'] ?> </b>
-                                    <form action="deletedev.php" method="post">
-                                      <input type="hidden" value="<?= $cust['id'] ?>" name="id">
-                                      <input type="hidden" value="customers" name="table">
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button class="btn btn-danger"> Continue </button>
-                                  </form>
+                              <div class="modal fade" id="<?=$cust['adrcode']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Delete action</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      You are about to delete this field do you want to proceed <b> <?= $cust['user_name'] ?> </b>
+                                      <form action="deletedev.php" method="post">
+                                        <input type="hidden" value="<?= $cust['id'] ?>" name="id">
+                                        <input type="hidden" value="customers" name="table">
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button class="btn btn-danger"> Continue </button>
+                                    </form>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            <?php else: ?>
+                            <?php endif; ?>
+                            <!-- Button trigger modal -->
                           </td>
                         </td>
                       </tr>
