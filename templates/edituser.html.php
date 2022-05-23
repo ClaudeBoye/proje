@@ -11,8 +11,8 @@
             <p class="text-muted mb-1">address code: <?=$customer['adrcode']?></p>
             <p class="text-muted mb-4">Actual address: <?=$customer['user_address']?></p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+              <a href="https://plus.codes/<?= $customer['pcode']?>"><button class="btn btn-white text-danger"><span class="bi bi-geo-alt-fill"> P.code</span></button></a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=<?=$location?>&travelmode=car"><button class="btn btn-white text-danger"><span class="bi bi-geo-alt-fill"> Address</span></button></a>
             </div>
           </div>
         </div>
@@ -75,6 +75,15 @@
               </div>
               <div class="col-sm-9">
                <textarea <?= $customer['description'] ?> name="description" class="form-control" rows="3"><?= $customer['description'] ?></textarea>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Location code</p>
+              </div>
+              <div class="col-sm-9">
+               <input type="text" value="<?= $customer['pcode'] ?>" name="pcode" id="pcode" class="form-control">
               </div>
             </div>
             <hr>

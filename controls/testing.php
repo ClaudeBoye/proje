@@ -14,6 +14,8 @@
         echo 'false <br>';
     }
     echo $password;
+
+    echo urlencode('Berlin,Germany|Paris,France');
 ?>
 
 </body>

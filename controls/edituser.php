@@ -42,11 +42,17 @@ if(empty($_SESSION['id'])){
             }else{
                 $des = $_POST['description'];    
             }
+            if($_POST['pcode'] == ''){
+                $pcode = $curcus['pcode'];
+            }else{
+                $pcode = $_POST['pcode'];    
+            }
             
             $params = ['id' => $_POST['id'], 'user_name' => $_POST['username'], 
                         'user_email' => $_POST['email'], 'user_phone' => $_POST['phone'], 
                         'user_address' => $_POST['address'], 'adrcode' => $_POST['region'],
-                        'userimg1' => $img1, 'userimg2' => $img2, 'userimg3' => $img3, 'description' => $des];
+                        'userimg1' => $img1, 'userimg2' => $img2, 'userimg3' => $img3, 'description' => $des,
+                        'pcode' => $pcode];
     
             update($pdo, 'customers', 'id', $params);
     
@@ -55,8 +61,9 @@ if(empty($_SESSION['id'])){
         }else{
             $title = 'Edit Customer';
     
-            // $employees = getall($pdo, 'customers');
             $customer = getViaId($pdo, 'customers', 'id', $_GET['id']);
+
+            $location = urlencode($customer['user_address']);
     
             ob_start();
     

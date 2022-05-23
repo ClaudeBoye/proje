@@ -21,7 +21,6 @@
                         <th>Address code</th>
                         <th></th>
                         <th><Center>actions</Center></th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -33,9 +32,6 @@
                         <td><?=$cust['user_phone']?></td>
                         <td><?=$cust['user_address']?></td>
                         <td><?=$cust['adrcode']?></td>
-                        <td>
-                          <a href=""><button class="btn btn-white"><span class="bi bi-geo-alt-fill"></span></button></a>
-                        </td>
                           <td>
                               <a href="edituser.php?id=<?=$cust['id']?>"><button class="btn btn-success"><span class="bi bi-eye-fill"></span></button>
                           </td>

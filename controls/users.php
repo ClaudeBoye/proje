@@ -2,25 +2,31 @@
 
 session_start();
 
-try{
-    include __DIR__.'/../includes/connect.php';
-    include __DIR__.'/../functions/functions.php';
+if(empty($_SESSION['id'])){
 
-    $customers = getall($pdo, 'customers');
+    header('location:login.php');
 
-    $sum = 0;
+}else{
 
-    $title = 'Customers list';
-
-    ob_start();
-
-    include __DIR__ . '/../templates/users.html.php';
-
-    $output = ob_get_clean();
-
-}catch (PDOException $e){
-    $title = 'An error occured';
-    $output = 'Unable to establish connection to due to the error '.$e->getMessage();
+    try{
+        include __DIR__.'/../includes/connect.php';
+        include __DIR__.'/../functions/functions.php';
+    
+        $customers = getall($pdo, 'customers');
+    
+        $sum = 0;
+    
+        $title = 'Customers list';
+    
+        ob_start();
+    
+        include __DIR__ . '/../templates/users.html.php';
+    
+        $output = ob_get_clean();
+    
+    }catch (PDOException $e){
+        $title = 'An error occured';
+        $output = 'Unable to establish connection to due to the error '.$e->getMessage();
+    }
 }
-
 include __DIR__ . '/../templates/adminlayout.html.php';
