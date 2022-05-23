@@ -76,6 +76,7 @@
                         <th>Dev code</th>
                         <th>status</th>
                         <th><Center>actions</Center></th>
+                        <th></th>
                       </tr>
                       </tr>
                     </thead>
@@ -93,7 +94,7 @@
                           <?php endif; ?>
                         </td>
                           <td>
-                              <a href="editdev.php?id=<?=$dev['id']?>"><button class="btn btn-success"><span class="bi bi-gear-fill"></span></button>
+                              <a href="editdev.php?id=<?=$dev['id']?>"><button class="btn btn-success"><span class="bi bi-eye-fill"></span></button>
                           </td>
                           <td>
                             <!-- Button trigger modal -->

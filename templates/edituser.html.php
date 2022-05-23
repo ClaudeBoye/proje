@@ -71,6 +71,15 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
+                <p class="mb-0">Desciption</p>
+              </div>
+              <div class="col-sm-9">
+               <textarea <?= $customer['description'] ?> name="description" class="form-control" rows="3"><?= $customer['description'] ?></textarea>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
                 <p class="mb-0">Address pictures</p>
               </div>
               <div class="col-sm-9">
